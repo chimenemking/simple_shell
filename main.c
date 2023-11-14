@@ -50,14 +50,6 @@ int main(int argc, char *argv[], char **env) {
   return (0);
 }
 
-void execute_command(char *command) {
-  // Use execlp() to execute the command
-  if (execlp(command, command, NULL) == -1) {
-    perror("Error (executing command)");
-    exit(EXIT_FAILURE);
-  }
-}
-
 int wait_for_child_process(int pid) {
   // Wait for the child process to exit and get its status
   int wstatus;
