@@ -55,17 +55,6 @@ void print_prompt()
   write(STDOUT_FILENO, input_prompt, strlen(input_prompt));
 }
 
-void read_command(char *buffer, size_t size) {
-  // Read the command line fr
-  bytes_read = getline(&command_buffer, &buffer_size, stdin);
-
-  // Check for errors
-  if (bytes_read == -1) {
-    perror("Error (getline)");
-    exit(EXIT_FAILURE);
-  }
-}
-
 void execute_command(char *command) {
   // Use execlp() to execute the command
   if (execlp(command, command, NULL) == -1) {
