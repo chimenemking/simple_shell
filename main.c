@@ -5,6 +5,50 @@
  */
 int main(int argc, char *argv[], char **env)
 {
+<<<<<<< HEAD
+=======
+  char *command_buffer = NULL;
+  char *input_prompt = "$ ";
+  ssize_t bytes_read;
+  int chd_pid;
+  bool input_from_pipe = false;
+  struct stat command_info;
+
+  while (1 && !input_from_pipe)
+  {
+    if (!isatty(STDIN_FILENO))
+    {
+      input_from_pipe = true;
+    }
+
+    /* print my prompt here */
+    print_prompt();
+
+    /* Read the command line */
+    read_command(command_buffer, BUFFER_SIZE);
+
+    /* fork the process first after reading */
+    chd_pid = fork();
+
+    if (chd_pid == -1) {
+      perror("Error (fork)");
+      exit(EXIT_FAILURE);
+    }
+
+    /* you now execute the command in the child process */
+    if (chd_pid == 0)
+    {
+      execute_command(command_buffer);
+      exit(EXIT_SUCCESS);
+    }
+
+    /* wait for child to exit */
+    wait_for_child_process(chd_pid);
+  }
+
+  /* Free up the command buffer */
+  free(command_buffer);
+>>>>>>> feaf9a25068812a63562febad171aa950728355e
 
 	char *command_buffer = NULL;
 	char *input_prompt = "$ ";
@@ -50,8 +94,9 @@ int main(int argc, char *argv[], char **env)
 	return (0);
 }
 
-void print_prompt()
+int wait_for_child_process(int pid)
 {
+<<<<<<< HEAD
   write(STDOUT_FILENO, input_prompt, strlen(input_prompt));
 }
 
@@ -92,4 +137,18 @@ int wait_for_child_process(int pid)
 	}
 
 	return wstatus;
+=======
+  /* Wait for child process to exit & get its status */
+  int wstatus;
+  int wait_result = waitpid(pid, &wstatus, 0);
+
+  /* Check for errors here */
+  if (wait_result == -1)
+  {
+    perror("Error (wait)");
+    exit(EXIT_FAILURE);
+  }
+
+  return wstatus;
+>>>>>>> feaf9a25068812a63562febad171aa950728355e
 }
