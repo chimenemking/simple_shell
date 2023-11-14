@@ -50,11 +50,6 @@ int main(int argc, char *argv[], char **env) {
   return (0);
 }
 
-void print_prompt()
-{
-  write(STDOUT_FILENO, input_prompt, strlen(input_prompt));
-}
-
 void execute_command(char *command) {
   // Use execlp() to execute the command
   if (execlp(command, command, NULL) == -1) {
