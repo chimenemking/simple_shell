@@ -7,4 +7,5 @@
 #include <stdbool.h>
 #include <string.h>
 
+extern char buffer[1024];
 #endif /* my simple shell */
