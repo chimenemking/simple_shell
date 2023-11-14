@@ -8,13 +8,13 @@
 
 void read_command(char *buffer, size_t size)
 {
-  /* Read the command line fr */
-  bytes_read = getline(&command_buffer, &buffer_size, stdin);
+	/* Read the command line fr */
+	bytes_read = getline(&command_buffer, &buffer_size, stdin);
 
-  /* check for errors */
-  if (bytes_read == -1)
-  {
-    perror("Error (getline)");
-    exit(EXIT_FAILURE);
-  }
+	/* check for errors */
+	if (bytes_read == -1)
+	{
+		perror("Error (getline)");
+		exit(EXIT_FAILURE);
+	}
 }
