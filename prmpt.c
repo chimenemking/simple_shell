@@ -6,5 +6,7 @@
 
 void print_prompt(void)
 {
+	char input_prompt[] = "(prompt)> ";
+
 	write(STDOUT_FILENO, input_prompt, strlen(input_prompt));
 }

@@ -51,12 +51,6 @@ int main(int argc, char *argv[], char **env)
 	return (0);
 }
 
-int wait_for_child_process(int pid)
-{
-	write(STDOUT_FILENO, input_prompt, strlen(input_prompt));
-}
-
-
 
 int wait_for_child_process(int pid)
 {
