@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
+#include <limits.h>
+#include <errno.h>
 #include <string.h>
 
 int main(int argc, char *argv[], char **env);
@@ -12,6 +14,8 @@ void execute_command(char *command);
 void read_command(char *buffer, size_t size);
 void print_prompt(void);
 char **split_cmd(const char *command);
+int stng_cmp(char *sg1, char *sg2);
+
 
 extern char buffer[1024];
 #endif /* my simple shell */

@@ -21,3 +21,31 @@ char **split_cmd(const char *command)
 	}
 	return (args);
 }
+
+
+/**
+ * stng_cmp - function to compares two strings.
+ *
+ * @sg1: string 1.
+ * @sg2: string 2.
+ *
+ * Return: int
+ */
+int stng_cmp(char *sg1, char *sg2)
+{
+	if (sg1 == NULL && sg2 == NULL)
+		return (0);
+	else if (sg1 == NULL || sg2 == NULL)
+		return (1);
+
+	while (*sg1 && *sg2)
+	{
+		if (*sg1 != *sg2)
+		{
+			return (1);
+		}
+		sg1++;
+		sg2++;
+	}
+	return (*sg1 != *sg2);
+}
