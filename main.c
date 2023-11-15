@@ -25,7 +25,7 @@ int main(int argc, char *argv[], char **env)
 		read_command(command_buffer, BUFFER_SIZE);
 
 		/* split the cmd line into tokens */
-		char **args = split_cmd(command_buffer);
+		args = split_cmd(command_buffer);
 
 		/* fork the process first after reading */
 		chd_pid = fork();
