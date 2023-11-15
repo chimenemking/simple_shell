@@ -9,6 +9,7 @@
 void read_command(char *buffer, size_t size)
 {
 	/* Read the command line fr */
+	char *command_buffer = NULL;
 	ssize_t bytes_read;
 	bytes_read = getline(&command_buffer, &buffer_size, stdin);
 

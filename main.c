@@ -6,8 +6,7 @@
 int main(int argc, char *argv[], char **env)
 {
 	char *command_buffer = NULL;
-	char *input_prompt = "$ ";
-	ssize_t bytes_read;
+	char **args;
 	int chd_pid;
 	bool input_from_pipe = false;
 	struct stat command_info;
@@ -24,6 +23,9 @@ int main(int argc, char *argv[], char **env)
 
 		/* Read the command line */
 		read_command(command_buffer, BUFFER_SIZE);
+
+		/* split the cmd line into tokens */
+		char **args = split_cmd(command_buffer);
 
 		/* fork the process first after reading */
 		chd_pid = fork();

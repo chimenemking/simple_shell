@@ -6,7 +6,7 @@
 
 void print_prompt(void)
 {
-	char input_prompt[] = "(prompt)> ";
+	char *input_prompt = "$ ";
 
 	write(STDOUT_FILENO, input_prompt, strlen(input_prompt));
 }
