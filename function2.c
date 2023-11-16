@@ -22,7 +22,6 @@ void free_space(char **code)
 		free(code);
 }
 
-#include "shell.h"
 
 /**
  * my_env - function to print the curent environment

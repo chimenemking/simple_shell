@@ -8,6 +8,8 @@
 #include <limits.h>
 #include <errno.h>
 #include <string.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
 
 int main(int argc, char *argv[], char **env);
 int wait_for_child_process(int pid);
@@ -21,7 +23,7 @@ void builtin_exit(char *args, char **command, char *argv[],
 int str_to_lng(const char *str, long int *result);
 int builtin_main(char *args, char *argv[], int linecount);
 void my_env(void);
-
+void free_space(char **code);
 
 extern char **environment;
 extern char buffer[1024];

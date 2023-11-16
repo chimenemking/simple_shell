@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * builtin_main - to execute builtin commands
+ * @args: for pointer to a string
+ * @argv: contains program name
+ * @linecount: shell line count
+ * Return: 0.
+ */
+
 int builtin_main(char *args, char *argv[], int linecount)
 {
 	char **command;
@@ -47,7 +55,7 @@ void builtin_exit(char *args, char **command, char *argv[], int linecount)
 	if (command[1] != NULL)
 	{
 		status = atoi_custom(command[1]);
-		if (status < 0 | status > INT_MAX)
+		if ((status < 0) | (status > INT_MAX))
 		{
 			error_msg(argv, linecount, command[0], "unsure no", command[1]);
 			free(args);
@@ -66,7 +74,12 @@ void builtin_exit(char *args, char **command, char *argv[], int linecount)
 	}
 }
 
-
+/**
+ * str_to_lng - coverts string to lng i.
+ * @str: string to be converted
+ * @result: the result.
+ * Return: 0.
+ */
 int str_to_lng(const char *str, long int *result)
 {
 	char *endptr;

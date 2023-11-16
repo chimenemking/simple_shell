@@ -1,7 +1,10 @@
 #include "shell.h"
+int main(int argc, char *argv[], char **env);
 
 /**
  * main - The main function that runs the shell.
+ * @argc: argument
+ *
  */
 int main(int argc, char *argv[], char **env)
 {
