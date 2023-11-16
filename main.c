@@ -32,6 +32,30 @@ int main(int argc, char *argv[], char **env)
 		/* split the cmd line into tokens */
 		args = split_cmd(command_buffer);
 
+		if (stng_cmp(args[0], "exit") == 0)
+		{
+			free(command_buffer);
+			free_space(args);
+			exit(EXIT_SUCCESS);
+		}
+
+		if (stng_cmp(args[0], "env") == 0)
+		{
+			my_env(env);
+			free(command_buffer);
+			free_space(args);
+			continue;
+		}
+
+		if (stat(args[0], &command_info) == -1)
+		{
+			perror("Error (stat)");
+			fprintf(stderr, "Command not found: %s\n", args[0]);
+			free(command_buffer);
+			free_space(args);
+			continue;
+		}
+
 		/* fork the process first after reading */
 		chd_pid = fork();
 

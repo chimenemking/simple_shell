@@ -22,9 +22,10 @@ void builtin_exit(char *args, char **command, char *argv[],
 	int linecount);
 int str_to_lng(const char *str, long int *result);
 int builtin_main(char *args, char *argv[], int linecount);
-void my_env(void);
+void my_env(char **env);
 void free_space(char **code);
 
 extern char **environment;
-extern char buffer[1024];
+
+#define BUFFER_SIZE 1024
 #endif /* my simple shell */
