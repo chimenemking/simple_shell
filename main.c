@@ -3,8 +3,10 @@ int main(int argc, char *argv[], char **env);
 
 /**
  * main - The main function that runs the shell.
- * @argc: argument
- *
+ * @argc: no of cmd arguments
+ * @argv: array of cmd line arguments
+ * @env: environment
+ * Return: 0.
  */
 int main(int argc, char *argv[], char **env)
 {
@@ -56,6 +58,11 @@ int main(int argc, char *argv[], char **env)
 	return (0);
 }
 
+/**
+ * wait_for_child_process - wait for child
+ * @pid: pid.
+ * Return: wstatus.
+ */
 
 int wait_for_child_process(int pid)
 {
