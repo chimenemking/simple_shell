@@ -13,11 +13,11 @@ int builtin_main(char *args, char *argv[], int linecount)
 			builtin_exit(args, command, argv, linecount);
 			return (0);
 		}
-		else if (stng_cmp(command[0], "env") == 0)
+		else if (stng_cmp(command[0], "envi") == 0)
 		{
 			free(args);
 			free_space(command);
-			get_env();
+			my_env();
 			return (0);
 		}
 		if (stng_cmp(command[0], "cd") == 0)

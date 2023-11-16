@@ -10,12 +10,19 @@
 #include <string.h>
 
 int main(int argc, char *argv[], char **env);
+int wait_for_child_process(int pid);
 void execute_command(char *command);
 void read_command(char *buffer, size_t size);
 void print_prompt(void);
 char **split_cmd(const char *command);
 int stng_cmp(char *sg1, char *sg2);
+void builtin_exit(char *args, char **command, char *argv[],
+	int linecount);
+int str_to_lng(const char *str, long int *result);
+int builtin_main(char *args, char *argv[], int linecount);
+void my_env(void);
 
 
+extern char **environment;
 extern char buffer[1024];
 #endif /* my simple shell */

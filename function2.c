@@ -21,3 +21,21 @@ void free_space(char **code)
 	if (code != NULL)
 		free(code);
 }
+
+#include "shell.h"
+
+/**
+ * my_env - function to print the curent environment
+ * Return: void
+ */
+void my_env(void)
+{
+	char **env_pr = environment;
+
+	while (*env_pr)
+	{
+		print_stdout(*env_pr);
+		putchar_stdout('\n');
+		env_pr++;
+	}
+}
